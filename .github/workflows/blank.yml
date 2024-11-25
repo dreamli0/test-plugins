@@ -17,7 +17,7 @@ jobs:
 
     - name: my action step
       id: my
-      uses: ciplugins-poc/my-action@v1.0.0
+      uses: ciplugins-poc/my-action
       with:
         who-to-greet: 'main' 
         
