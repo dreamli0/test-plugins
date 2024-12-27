@@ -1,3 +1,5 @@
 # test-plugins
 
 hello
+
+hello
