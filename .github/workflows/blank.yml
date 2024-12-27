@@ -8,6 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4.0.1
+
+    - name: List Pull Request Details
+      run: |
+          echo "Pull Request details:"
+          echo "Title: ${{ github.event.pull_request.title }}"
+    
     # - name: Enable Cache
     #   id: cache-action
     #   uses: actions/cache@v2 
