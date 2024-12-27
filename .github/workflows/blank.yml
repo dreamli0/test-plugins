@@ -8,25 +8,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Enable Cache
-      id: cache-action
-      uses: actions/cache@v2 
-      with:
-        path: cache-folder
-        key: ${{ runner.os }}-${{ hashFiles('cache-folder/cache-me') }}
 
-    - name: my action step
-      id: my
-      uses: ciplugins-poc/my-action@main
-      with:
-        who-to-greet: 'main' 
+    - name: List Pull Request Details
+      run: |
+          echo "Pull Request details:"
+          echo "Title: ${{ github.event.pull_request.title }}"
+    
+    # - name: Enable Cache
+    #   id: cache-action
+    #   uses: actions/cache@v2 
+    #   with:
+    #     path: cache-folder
+    #     key: ${{ runner.os }}-${{ hashFiles('cache-folder/cache-me') }}
+
+    # - name: my action step
+    #   id: my
+    #   uses: ciplugins-poc/my-action@main
+    #   with:
+    #     who-to-greet: 'main' 
         
-    - shell: bash
-      if: ${{ steps.cache-action.outputs.cache-hit == 'true' }}
-      run: |
-          cat cache-folder/cache-me
+    # - shell: bash
+    #   if: ${{ steps.cache-action.outputs.cache-hit == 'true' }}
+    #   run: |
+    #       cat cache-folder/cache-me
           
-    - name: Verify we have our cached file 
-      run: |
-        cat cache-folder/cache-me
+    # - name: Verify we have our cached file 
+    #   run: |
+    #     cat cache-folder/cache-me
     
